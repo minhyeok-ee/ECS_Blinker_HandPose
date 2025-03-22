@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>제스처 기능이 있는 Arduino LED 컨트롤러</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.11.1/p5.js"></script>
+    <script src="https://unpkg.com/@gohai/p5.webserial@^1/libraries/p5.webserial.js"></script>
+    <script src="https://unpkg.com/ml5@1/dist/ml5.min.js"></script>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>
+        제스처 기능이 있는
+        <span style="color: #ff66b2">Arduino LED 컨트롤러</span>
+      </h1>
+
+      <button id="connectButton" class="connect-btn">아두이노에 연결</button>
+
+      <div class="content">
+        <!-- 왼쪽 UI 패널 -->
+        <div class="ui-section">
+          <div class="sliders">
+            <label>빨강 시간: <span id="redTime">2000</span> ms</label>
+            <input
+              type="range"
+              id="redSlider"
+              min="500"
+              max="3500"
+              value="2000"
+              step="100"
+            />
+
+            <label>노랑 시간: <span id="yellowTime">500</span> ms</label>
+            <input
+              type="range"
+              id="yellowSlider"
+              min="500"
+              max="3500"
+              value="500"
+              step="100"
+            />
+
+            <label>초록 시간: <span id="greenTime">2000</span> ms</label>
+            <input
+              type="range"
+              id="greenSlider"
+              min="500"
+              max="3500"
+              value="2000"
+              step="100"
+            />
+          </div>
+          <p>현재 모드: <span id="modeText">N/A</span></p>
+          <p>현재 밝기: <span id="brightnessValue">255</span></p>
+
+          <!-- LED 디스플레이 -->
+          <div class="led-display">
+            <div id="redLed" class="led red"></div>
+            <div id="yellowLed" class="led yellow"></div>
+            <div id="greenLed" class="led green"></div>
+          </div>
+        </div>
+
+        <!-- 오른쪽 카메라 영역 -->
+        <div class="camera-section">
+          <video id="video" autoplay></video>
+        </div>
+      </div>
+    </div>
+
+    <script src="sketch.js"></script>
+  </body>
+</html>
