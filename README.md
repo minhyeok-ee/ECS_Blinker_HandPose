@@ -1,4 +1,4 @@
-# ECS Blinker System
+# ECS Blinker System with HandPose Control
 
 **202100319 장민혁**
 
